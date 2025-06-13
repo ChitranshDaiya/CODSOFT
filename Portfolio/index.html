@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chitransh | Portfolio</title>
+  <link rel="stylesheet" href="portfolio.css" />
+  <script src="portfolio.js" defer></script>
+</head>
+<body>
+  <!-- Loading Animation -->
+  <section id="loading">
+    <span id="ele1">&lt;</span>
+    <span id="ele2">
+      <span class="slash">/</span>
+    </span>
+    <span id="ele3">&gt;</span>
+  </section>
+
+  <!-- Main Portfolio Content -->
+  <section class="portfolio">
+    <!-- Header/Navbar -->
+    <header class="navbar">
+      <h1 class="logo">Chitransh Daiya <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">🌙</button> </h1>
+      <span id="menuBtn" onclick="openMenu()">&#9776;</span>
+      
+      <nav class="menu">
+        <ul>
+          <li data-target="about">About</li>
+          <li data-target="skills">Skills</li>
+          <li data-target="projects">Projects</li>
+          <li data-target="resume">Resume</li>
+          <li data-target="contact">Contact</li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <img src="Chit Photo.jpg" alt="Chitransh's Photo" class="profile-pic"/>
+        <p>Hello! I’m Chitransh, a front-end developer passionate about crafting engaging web experiences. I specialize in transforming ideas into beautiful, intuitive, and performant websites.</p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <h2>My Skills</h2>
+      <div class="skills-grid">
+        <div class="skill">
+            <div class="skill-meta">
+              <img src="HTML.jpeg" alt="HTML" class="skill-icon"/>
+              <p>HTML</p>
+            </div>
+            <div class="skill-bar">
+              <div class="progress" style="width: 90%;"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <div class="skill-meta">
+              <img src="CSS.jpg" alt="CSS" class="skill-icon"/>
+              <p>CSS</p>
+            </div>
+            <div class="skill-bar">
+              <div class="progress" style="width: 80%;"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <div class="skill-meta">
+              <img src="JavaScript.jpg" alt="Javascript" class="skill-icon"/>
+              <p>Javascript</p>
+            </div>
+            <div class="skill-bar">
+              <div class="progress" style="width: 70%;"></div>
+            </div>
+          </div>
+      </div>
+      <div class="skill">
+            <div class="skill-meta">
+              <img src="SQL.jpg" alt="MySQL" class="skill-icon"/>
+              <p>MySQL</p>
+            </div>
+            <div class="skill-bar">
+              <div class="progress" style="width: 60%;"></div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="project-card">
+          <div class="project-meta">
+          <h3 class="project-title">The Chaos Sweeper – A Text-Based RPG Game</h3>
+            <div class="project-summary">
+            <p><strong>Project Type:</strong> Single-player web-based game</p>
+            <p><strong>Genre:</strong> Comedy, Fantasy, Puzzle</p>
+            <p><strong>Platform:</strong> Web (Built with HTML, CSS, JavaScript)</p>
+          </div>
+        <dl>
+                <dt><h3>Key features</h3></dt>
+                <dt>Unique Narrative Style</dt>
+                <dd>Blends quirky humor with fantasy and sci-fi elements.</dd>
+                <dt>Character Dialogues</dt>
+                <dd>Dynamic conversations between bizarre characters (e.g., talking objects, confused AI).</dd>
+                <dt>Progressive Plot</dt>
+                <dd>Timelines merge slowly, creating unexpected twists.</dd>
+                <dt>Puzzle Elements</dt>
+                <dd>Users must solve light logic puzzles to progress in the game.</dd>
+                <dt>Interactive UI</dt>
+                <dd>Custom chat-style interface with styled character  and dialogues.</dd>
+        </dl>
+        <a href="https://chitranshdaiya.github.io/The-Chaos-Sweeper/" target="_blank" class="project-button">🎮 Play The Chaos Sweeper</a>
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="section">
+      <h2>Resume</h2>
+      <p>
+        👁️ Preview the Resume: 
+        <a href="Resume.pdf" target="_blank" rel="noopener noreferrer">Preview</a>
+      </p>
+      <p>
+        📥 Download the Resume in PDF form: 
+        <a href="Resume.pdf" download>Download PDF</a>
+      </p>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 Chitransh Daiya. All rights reserved.</p>
+    </footer>
+  </section>
+</body>
+</html>

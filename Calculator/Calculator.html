@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator with Date and Time</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #282c34;
+            color: #ffffff;
+        }
+
+        .container {
+            text-align: center;
+            background: #3a3f47;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            width: 300px;
+        }
+
+        .clock, .date {
+            font-size: 1.5em;
+            color: #61dafb;
+            padding: 10px;
+            border: 2px solid #61dafb;
+            border-radius: 10px;
+            margin: 5px 0;
+        }
+
+        #calc-container {
+            background-color: #3a3f47;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+        }
+
+        table {
+            width: 100%;
+            text-align: center;
+            background-color: #3a3f47;
+        }
+
+        #result {
+            height: 60px;
+            font-size: 1.8rem;
+            background-color: #e9eef5;
+            color: #333;
+            text-align: right;
+            padding-right: 10px;
+            border: 2px solid #61dafb;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input {
+            height: 50px;
+            width: 50px;
+            font-size: 1.5rem;
+            color: #4a4a4a;
+            background-color: #f7f9fc;
+            border: 2px solid #61dafb;
+            border-radius: 10px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input:hover {
+            background-color: #dde4eb;
+        }
+
+        input:active {
+            background-color: #c5d0de;
+        }
+
+        .equal {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        .equal:hover {
+            background-color: #0069d9;
+        }
+
+        .equal:active {
+            background-color: #0056b3;
+        }
+
+    </style>
+    <script type="text/javascript">
+        function showDateTime() {
+            var date = new Date();
+            var h = date.getHours(); 
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            var session = "AM";
+
+            if(h == 0) {
+                h = 12;
+            }
+            
+            if(h > 12) {
+                h = h - 12;
+                session = "PM";
+            }
+
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+
+            var time = h + ":" + m + ":" + s + " " + session;
+            document.getElementById("MyClockDisplay").innerText = time;
+
+            var day = (date.getDate() < 10) ? "0" + date.getDate() : date.getDate();
+            var month = ((date.getMonth() + 1) < 10) ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1);
+            var year = date.getFullYear();
+            var weekday = date.toLocaleDateString("en-US", { weekday: 'long' });
+            var currentDate = weekday + " " + day + "/" + month + "/" + year;
+            document.getElementById("MyDateDisplay").innerText = currentDate;
+            
+            setTimeout(showDateTime, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', showDateTime);
+
+        function appendValue(val) {
+            document.getElementById('result').value += val;
+        }
+
+        function clearEntry() {
+            document.getElementById('result').value = '';
+        }
+
+        function backspace() {
+            let currentValue = document.getElementById('result').value;
+            document.getElementById('result').value = currentValue.slice(0, -1);
+        }
+
+        function calculate() {
+            let expression = document.getElementById('result').value;
+            try {
+                let result = eval(expression);
+                document.getElementById('result').value = result;
+            } catch (error) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            const key = event.key;
+            const keycode = event.keyCode;
+
+            if ((keycode >= 48 && keycode <= 57 || keycode >= 96 && keycode <= 105 || key === '.')) {
+                appendValue(key);
+            } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+                appendValue(key);
+            } else if (keycode === 13) {
+                calculate();
+            } else if (keycode === 8) {
+                backspace();
+            } else if (keycode === 27) {
+                clearEntry();
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="calc-container">
+        <div class="container">
+            <div id="MyClockDisplay" class="clock"></div>
+            <div id="MyDateDisplay" class="date"></div>
+        </div>
+
+        <table>
+            <tr>
+                <td colspan="5"><input type="text" name="result" id="result" readonly></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="appendValue('7')"></td>
+                <td><input type="button" value="8" onclick="appendValue('8')"></td>
+                <td><input type="button" value="9" onclick="appendValue('9')"></td>
+                <td><input type="button" value="CE" onclick="clearEntry()"></td>
+                <td><input type="button" value="&#x232B; " onclick="backspace()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="appendValue('4')"></td>
+                <td><input type="button" value="5" onclick="appendValue('5')"></td>
+                <td><input type="button" value="6" onclick="appendValue('6')"></td>
+                <td><input type="button" value="/" onclick="appendValue('/')"></td>
+                <td><input type="button" value="*" onclick="appendValue('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="appendValue('1')"></td>
+                <td><input type="button" value="2" onclick="appendValue('2')"></td>
+                <td><input type="button" value="3" onclick="appendValue('3')"></td>
+                <td><input type="button" value="-" onclick="appendValue('-')"></td>
+                <td rowspan="2"><input type="button" class="equal" value="=" onclick="calculate()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="0" onclick="appendValue('0')"></td>
+                <td><input type="button" value="00" onclick="appendValue('00')"></td>
+                <td><input type="button" value="." onclick="appendValue('.')"></td>
+                <td><input type="button" value="+" onclick="appendValue('+')"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

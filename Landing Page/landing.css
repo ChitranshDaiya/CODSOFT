@@ -1,0 +1,169 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+header {
+    background-color: #111;
+    color: #fff;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin: 0;
+}
+
+header p {
+    font-style: italic;
+    margin: 5px 0 15px;
+    font-weight: 300;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 1.1rem;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+#home {
+    background-color: #97aee6;
+    text-align: center;
+}
+
+#home h2 {
+    font-size: 2rem;
+}
+
+#home p, #home h3, #home h4 {
+    max-width: 800px;
+    margin: 15px auto;
+    font-size: 1.1rem;
+}
+
+#home ul {
+    text-align: left;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 0;
+}
+
+#home li {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+#home button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+#home button:hover {
+    background-color: #0056b3;
+}
+
+#how-it-works dl {
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+}
+
+dt {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 20px;
+}
+
+dd {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding-left: 20px;
+}
+
+#testimonials {
+    background-color: #ffffff;
+    border-top: 1px solid #ccc;
+}
+
+.review {
+    background: #f0f4ff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 700px;
+    border-left: 5px solid #007bff;
+    border-radius: 8px;
+}
+
+.review h3 {
+    margin-top: 0;
+}
+
+.reviewer {
+    font-weight: bold;
+    color: #007bff;
+}
+
+#faq {
+    background-color: #eef2f7;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item h4 {
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+footer a {
+    color: #3bb4ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    #home h2, #home h3, #home h4 {
+        font-size: 1.3rem;
+    }
+
+    #home button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
